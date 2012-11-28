@@ -10,10 +10,10 @@ def sign_in(user)
 end
 
 def enter_valid_user_info
-	fill_in "Name", 				with: "Example User"
-	fill_in "Email", 				with: "user@example.com"
-	fill_in "Password", 		with: "foobar"
-	fill_in "Confirmation", with: "foobar"
+	fill_in "Name", 						with: "Example User"
+	fill_in "Email", 						with: "user@example.com"
+	fill_in "Password", 				with: "foobar"
+	fill_in "Confirm Password", with: "foobar"
 end
 
 RSpec::Matchers.define :have_error_message do |message|
@@ -25,5 +25,11 @@ end
 RSpec::Matchers.define :have_welcome_message do |message|
 	match do |page|
 		page.should have_selector('div.alert.alert-success', text: message)
+	end
+end
+
+RSpec::Matchers.define :home_page do
+	match do |page|
+		page.should have_selector('h1', text: 'Welcome to the Sample App')
 	end
 end
