@@ -27,9 +27,3 @@ RSpec::Matchers.define :have_welcome_message do |message|
 		page.should have_selector('div.alert.alert-success', text: message)
 	end
 end
-
-RSpec::Matchers.define :home_page do
-	match do |page|
-		page.should have_selector('h1', text: 'Welcome to the Sample App')
-	end
-end
